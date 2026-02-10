@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class ProductRepository {
@@ -18,6 +19,30 @@ public class ProductRepository {
 
     public Iterator<Product> findAll() {
         return productData.iterator();
+    }
+
+    public Product findById(String id) {
+        for (Product product : productData) {
+            if (Objects.equals(product.getProductId(), id)) {
+                return product;
+            }
+        }
+        return null;
+    }
+
+    public Product update(Product updatedProduct) {
+        if (updatedProduct == null || updatedProduct.getProductId() == null) {
+            return null;
+        }
+
+        Product product = findById(updatedProduct.getProductId());
+        if (product == null) {
+            return null;
+        }
+
+        product.setProductName(updatedProduct.getProductName());
+        product.setProductQuantity(updatedProduct.getProductQuantity());
+        return product;
     }
 }
 
