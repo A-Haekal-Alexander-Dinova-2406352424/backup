@@ -44,5 +44,16 @@ public class ProductRepository {
         product.setProductQuantity(updatedProduct.getProductQuantity());
         return product;
     }
+
+    public boolean delete(String id) {
+        Iterator<Product> iterator = productData.iterator();
+        while (iterator.hasNext()) {
+            if (Objects.equals(iterator.next().getProductId(), id)) {
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
