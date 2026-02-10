@@ -133,4 +133,8 @@ Kebutuhan PDF: tulis Refleksi 1 dan Refleksi 2 di `README.md` pada branch `main`
 - PDF mendefinisikan checkpoint yang wajib; repository ini punya beberapa commit tambahan yang masih relevan dan tidak mengubah requirement utama:
   - `78b769d` - `Initial commit` (sebelum scaffold project).
   - `4f3771b` - `Fix Gradle test task config` (commit perbaikan konfigurasi yang identik dengan `002ded7`, dibuat di branch `unit-test` dan ikut terbawa saat merge).
+  - `e67235a` - `Fix delete redirect` (perbaikan redirect setelah aksi create/edit/delete supaya kembali ke `/product/list` dan tidak memicu error 405 saat delete).
+    - Merge commit eksplisit di `main`: `1aa8bcd` - `Merge pull request #8 from .../fix-delete-redirect`
+    - Bukti (2 parent): `1aa8bcd parents:dc47b3d e67235a Merge pull request #8 from A-Haekal-Alexander-Dinova-2406352424/fix-delete-redirect`
+    - PR: https://github.com/A-Haekal-Alexander-Dinova-2406352424/Module-1-Coding-Standard/pull/8
 - Tidak ada rewrite history (tidak ada force-push, tidak ada squash merge). Semua branch fitur digabung ke `main` lewat PR dengan merge commit eksplisit (bukan fast-forward).
